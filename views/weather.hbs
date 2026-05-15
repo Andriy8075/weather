@@ -1,0 +1,59 @@
+{{> header}}
+
+<section class="card">
+  <h2>Оберіть місто</h2>
+  <nav class="city-menu" aria-label="Меню міст">
+    {{#each cities}}
+      <a class="city-link {{#if isActive}}active{{/if}}" href="/weather/{{name}}">
+        {{title}}
+      </a>
+    {{/each}}
+  </nav>
+  <p class="hint">
+    Поточний маршрут: <code>/weather/{{currentCity}}</code>.
+    Для місцезнаходження автора відкрийте <code>/weather/</code>.
+  </p>
+</section>
+
+{{#if error}}
+  <section class="card error-card">
+    <h2>Повідомлення</h2>
+    <p>{{error}}</p>
+    <p>
+      Якщо це перший запуск, створіть файл <code>.env</code> за прикладом
+      <code>.env.example</code> і додайте ключ OpenWeatherMap.
+    </p>
+  </section>
+{{/if}}
+
+{{#if weather}}
+  <section class="weather-card">
+    <div>
+      <p class="eyebrow">Погода зараз</p>
+      <h2>{{weather.city}}, {{weather.country}}</h2>
+      <p class="description">{{weather.description}}</p>
+    </div>
+
+    <div class="weather-main">
+      <img src="{{weather.icon}}" alt="Іконка погоди {{weather.description}}">
+      <strong>{{weather.temperature}}°C</strong>
+    </div>
+
+    <dl class="weather-details">
+      <div>
+        <dt>Відчувається як</dt>
+        <dd>{{weather.feelsLike}}°C</dd>
+      </div>
+      <div>
+        <dt>Вологість</dt>
+        <dd>{{weather.humidity}}%</dd>
+      </div>
+      <div>
+        <dt>Вітер</dt>
+        <dd>{{weather.wind}} м/с</dd>
+      </div>
+    </dl>
+  </section>
+{{/if}}
+
+{{> footer}}

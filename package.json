@@ -1,0 +1,26 @@
+{
+  "name": "weather-lab-4",
+  "version": "1.0.0",
+  "description": "Node.js Express weather application for laboratory work 4.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -e js,hbs,json,css app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "weather",
+    "hbs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "latest",
+    "express": "latest",
+    "hbs": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}
